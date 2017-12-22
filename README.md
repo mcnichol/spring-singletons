@@ -7,9 +7,9 @@ Clone and run this project with
 
 `./gradlew bootRun`
 
-In another terminal window, navigate to the root directory and execute `./curl-singleton-controller.sh` 
+In another terminal window, navigate to the root directory and execute `./curl-singleton-controller.sh`
 
-You should see an error logged to the terminal and the `SpringApplication` will receive a **System Halt** 
+You should see an error logged to the terminal and the `SpringApplication` will receive a **System Halt**
 
 ## What does this show?
 Inside the script there are two curl commands that run simultaneously (*for the most part...we can talk semantics later*).
@@ -22,13 +22,13 @@ This [Controller](./src/main/java/com/mcnichol/spring/Controller.java) is inject
  * [MyServiceOne](./src/main/java/com/mcnichol/spring/MyServiceOne.java)
  * [MyServiceTwo](./src/main/java/com/mcnichol/spring/MyServiceTwo.java)
 
-Both of these services are injected with the [ComponentIsSingleton](./src/main/java/com/mcnichol/spring/ComponentShouldBeSingleton.java) object
+Both of these services are injected with the [ComponentIsSingleton](./src/main/java/com/mcnichol/spring/ComponentIsSingleton.java) object
 
-Both Services now have a reference to the same `ComponentIsSingleton` object.
+Both Services now have a reference to the same [ComponentIsSingleton](./src/main/java/com/mcnichol/spring/ComponentIsSingleton.java) object.
 
 We simulate [MyServiceOne](./src/main/java/com/mcnichol/spring/MyServiceOne.java) behaving as a long-running process (by inducing a Thread Sleep) while [MyServiceTwo](./src/main/java/com/mcnichol/spring/MyServiceTwo.java) behaves as a significantly faster process. 
 
-Each service will set the [ComponentIsSingleton](./src/main/java/com/mcnichol/spring/ComponentShouldBeSingleton.java).stringValue field to their respective values (`ThingOne` || `ThingTwo`)
+Each service will set the [ComponentIsSingleton](./src/main/java/com/mcnichol/spring/ComponentIsSingleton.java).stringValue field to their respective values (`ThingOne` || `ThingTwo`)
 
 It will then check the value which was just set, check if the values are the same, if not equal throws an `Exception`
 
