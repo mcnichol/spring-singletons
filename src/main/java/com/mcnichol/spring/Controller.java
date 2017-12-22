@@ -25,6 +25,7 @@ public class Controller {
 
     @RequestMapping("/work")
     public void doWork(@RequestParam("do") String it) {
+        log.info(String.format("/work endpoint called"));
         try {
             myServiceOne.doWork(it);
         } catch (Exception e) {
@@ -36,6 +37,7 @@ public class Controller {
 
     @RequestMapping("/morework")
     public void doMore(@RequestParam("do") String it) throws Exception {
+        log.info(String.format("/morework endpoint called"));
         myServiceTwo.doWork(it);
     }
 }
