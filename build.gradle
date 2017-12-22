@@ -1,0 +1,19 @@
+
+plugins {
+    id 'org.springframework.boot' version '1.5.9.RELEASE'
+    id 'java'
+}
+
+group 'com.mcnichol.spring'
+version '1.0-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web:1.5.9.RELEASE")
+    compile("org.springframework.boot:spring-boot-starter-actuator:1.5.9.RELEASE")
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
