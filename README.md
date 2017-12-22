@@ -36,9 +36,9 @@ It will then check the value which was just set, check if the values are the sam
 
 The sequence of events is (for the most part):
 1. Controller endpoint */work* curled with QueryParam **ThingOne**
-1. Controller endpoint */morework* curled with QueryParam **ThingTwo**
 1. `MyServiceOne.doWork` (from */work* endpoint) triggered on Thread1 setting `ComponentIsSingleton.stringValue` -> **ThingOne**
     1. Thread1.Sleep is called for 2 seconds
+1. Controller endpoint */morework* curled with QueryParam **ThingTwo**
 1. `MyServiceTwo.doWork` (from */morework* endpoint) triggered on Thread2 setting `ComponentIsSingleton.stringValue` -> **ThingTwo**
 1. `MyServiceTwo.doWork` checks if `ComponentIsSingleton.stringValue` is **NOT** equal to **ThingTwo** (This will evaluate false)
 1. `MyServiceOne.doWork` Sleep will have elapsed on Thread1 and check if `ComponentIsSingleton.stringValue` is **NOT** equal to **ThingOne** 
